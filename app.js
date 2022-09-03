@@ -4,6 +4,9 @@ let currentNumber = null;
 let result = null;
 let operation = "";
 let firstRound = true;
+let pressed = false;
+let inDecimal = false;
+
 
 
 function add(a, b) {
@@ -38,39 +41,53 @@ function operate(a, b) {
 }
 
 function clearDisplay(press) {
-    console.log("clear");
     updateDisplay(press);
     displayValue = "";
     firstNumber = null;
     currentNumber = null;
     operation = "";
     firstRound = true;
+    pressed = false;
 }
 
 function plusMinus() {
     currentNumber *= -1;
+    updateDisplay(currentNumber);
 }
 
 function percentage() {
     currentNumber /= 100;
+    updateDisplay(currentNumber);
 }
 
 function updateDisplay(n) {
-    console.log(n);
     document.querySelector(".display").textContent = n;
 }
 
 
 
 function takeInput(press) {
-    if (press === "0" && document.querySelector(".display").textContent === "0") {} else {
+    if (document.querySelector(".display").textContent === "0" && press === "0") {
+        currentNumber = 0;
+    } else if (document.querySelector(".display").textContent === "0" && press === ".") {
+        displayValue = "0.";
+        updateDisplay(displayValue);
+        currentNumber = 0;
+        console.log(currentNumber);
+        pressed = false;
+    } else {
         displayValue += press;
         updateDisplay(displayValue);
         currentNumber = Number(displayValue);
+        pressed = false;
     }
 }
 
 function takeOperation(press) {
+
+    if (document.querySelector(".display").textContent === "0") {
+        firstNumber = 0;
+    }
 
     if (firstRound) {
         operation = press;
@@ -87,10 +104,15 @@ function takeOperation(press) {
 }
 
 function takeEquals() {
-    result = operate(firstNumber, currentNumber);
-    currentNumber = result;
-    firstNumber = result;
-    updateDisplay(result);
-    displayValue = "";
-    firstRound = true;
+    if (firstNumber != null) {
+        if (pressed) {} else {
+            result = operate(firstNumber, currentNumber);
+            updateDisplay(result);
+            currentNumber = result;
+            firstNumber = result;
+            displayValue = "";
+            firstRound = true;
+            pressed = true;
+        }
+    } else {}
 }
