@@ -7,40 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;900&family=Roboto:wght@100;300&family=Ubuntu&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Calculator</h1>
         <div class="screen">
             <div class="display">0</div>
         </div>
-        <button onclick="clearDisplay('0')">AC</button>
-        <button onclick="plusMinus()">+/-</button>
-        <button onclick="percentage()">%</button>
-        <button onclick="takeInput('1')">1</button>
-        <button onclick="takeInput('2')">2</button>
-        <button onclick="takeInput('3')">3</button>
-        <button onclick="takeInput('4')">4</button>
-        <button onclick="takeInput('5')">5</button>
-        <button onclick="takeInput('6')">6</button>
-        <button onclick="takeInput('7')">7</button>
-        <button onclick="takeInput('8')">8</button>
-        <button onclick="takeInput('9')">9</button>
-        <button onclick="takeInput('0')">0</button>
-        <button onclick="takeInput('.')">.</button>
-        <button onclick="takeOperation('+')">+</button>
-        <button onclick="takeOperation('-')">-</button>
-        <button onclick="takeOperation('*')">*</button>
-        <button onclick="takeOperation('/')">/</button>
-        <button onclick="takeEquals('=')">=</button>
+        <div class="grid-container button-pad">
+            <button class="button grid-col-span-2" onclick="clearDisplay('0')">CLEAR</button>
+            <button class="button" onclick="plusMinus()">+/-</button>
+            <button class="button" onclick="percentage()">%</button>
+            <button class="button" onclick="takeInput('7')">7</button>
+            <button class="button" onclick="takeInput('8')">8</button>
+            <button class="button" onclick="takeInput('9')">9</button>
+            <button class="button" onclick="takeOperation('/')">÷</button>
+            <button class="button" onclick="takeInput('4')">4</button>
+            <button class="button" onclick="takeInput('5')">5</button>
+            <button class="button" onclick="takeInput('6')">6</button>
+            <button class="button" onclick="takeOperation('*')">x</button>
+            <button class="button" onclick="takeInput('1')">1</button>
+            <button class="button" onclick="takeInput('2')">2</button>
+            <button class="button" onclick="takeInput('3')">3</button>
+            <button class="button" onclick="takeOperation('-')">-</button>
+            <button class="button" onclick="takeInput('.')">.</button>
+            <button class="button" onclick="takeInput('0')">0</button>
+            <button class="button" onclick="takeEquals('=')">=</button>
+            <button class="button" onclick="takeOperation('+')">+</button>
+        </div>
 
     </div>
 

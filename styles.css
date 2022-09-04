@@ -1,21 +1,46 @@
-h1 {
-    color: red;
+
+body {
+    background-color: rgb(44, 44, 44);
 }
 
+
 .container {
+    margin: 10vh auto;
+    width: 300px;
+    height: 500px;
     align-items: center;
 }
 
 .screen {
+    background-color: gray;
+    margin-bottom: 0.3rem; 
     width: 300px; 
-    height: 50px; 
+    height: 4rem; 
     border-radius: 15px;
-    border: 2px solid gray;
     text-align: right;
 }
 
 .display {
-    font-size: 1rem;
+    margin: auto;
+    font-size: 3rem;
     font-family: roboto;
     padding: 5px 10px;
 }
+
+.grid-container {
+    display: grid;
+    gap: 0.3rem; 
+    width: 300px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-col-span-2 {
+    grid-column: span 2;
+}
+
+.button {
+    height: 4rem;
+    border-radius: 15px;
+    font-size: 1.5rem;
+}
+
