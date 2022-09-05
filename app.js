@@ -52,16 +52,17 @@ function clearDisplay(press) {
 
 function plusMinus() {
     currentNumber *= -1;
-    updateDisplay(currentNumber);
+    updateDisplay(String(currentNumber));
 }
 
 function percentage() {
     currentNumber /= 100;
-    updateDisplay(currentNumber);
+    updateDisplay(String(currentNumber));
 }
 
 function updateDisplay(n) {
-    document.querySelector(".display").textContent = n;
+    trimmed = n.substring(0, 10);
+    document.querySelector(".display").textContent = trimmed;
 }
 
 
@@ -99,7 +100,7 @@ function takeOperation(press) {
         firstNumber = result;
         operation = press;
     };
-    updateDisplay(firstNumber);
+    updateDisplay(String(firstNumber));
     displayValue = "";
 }
 
@@ -107,7 +108,7 @@ function takeEquals() {
     if (firstNumber != null) {
         if (pressed) {} else {
             result = operate(firstNumber, currentNumber);
-            updateDisplay(result);
+            updateDisplay(String(result));
             currentNumber = result;
             firstNumber = result;
             displayValue = "";
@@ -116,3 +117,17 @@ function takeEquals() {
         }
     } else {}
 }
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "0" || e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6" || e.key === "7" || e.key === "8" || e.key === "9" || e.key === ".") {
+        takeInput(e.key);
+    } else if (e.key === "/" || e.key === "*" || e.key === "-" || e.key === "+") {
+        takeOperation(e.key);
+    } else if (e.key === "=" || e.key === "Enter") {
+        takeEquals(e.key);
+    } else if (e.key === "%") {
+        percentage(e.key);
+    } else if (e.key === "–") {
+        plusMinus(e.key);
+    } else {}
+}); 
